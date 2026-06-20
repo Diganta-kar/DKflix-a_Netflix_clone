@@ -1,0 +1,595 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background-color: #000000;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 200;
+}
+
+/* NAVBAR SCROLLED STATE */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  transition: background 0.4s ease;
+}
+
+/* NAVBAR LOGO */
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* NAVBAR RIGHT SIDE */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SEARCH BAR */
+.search-wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+/* ICON FIXED */
+.search-wrapper .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+
+  color: rgba(255, 255, 255, 0.95); /* brighter so blur won't wash it out */
+  text-shadow: 0 0 4px rgba(0,0,0,0.6); /* makes icon stand out */
+  
+  pointer-events: none;
+  user-select: none;
+  z-index: 400; /* icon ABOVE the glass layer */
+}
+
+/* YOUR SEARCH BAR (unchanged except padding-left) */
+.search-bar {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 6px 12px;
+  padding-left: 40px; /* space for icon */
+  border-radius: 20px;
+  font-size: 14px;
+  width: 200px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  position: relative;
+  z-index: 300; /* input BELOW icon */
+}
+
+.search-bar::placeholder {
+  color: #aaaaaa;
+}
+
+/* SIGN IN BUTTON */
+.sign-in-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* HERO BANNER */
+.hero {
+  position: relative;
+  height: 90vh;
+  background-image: url('https://wallpapercave.com/uwp/uwp4980006.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  transition: background-image 0.6s ease;
+}
+
+/* DARK OVERLAY */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    /* TOP — dark so navbar area is readable */
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 25%),
+
+    /* BOTTOM — fades to pure black so it merges with the page background */
+    linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 15%, rgba(0, 0, 0, 0) 40%),
+
+    /* LEFT — moderate darkness so logo and text are readable */
+    linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0) 60%),
+
+    /* RIGHT AND MIDDLE — completely clear, no gradient touching them */
+    linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 50px 80px 50px;
+  max-width: 600px;
+}
+
+/* HERO TITLE */
+.hero-title {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* HERO DESCRIPTION */
+.hero-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #d3d3d3;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* HERO BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-play {
+  background: linear-gradient(135deg, #ffffff,  #d6d6d6);
+  ;
+  color: black;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+
+  /* Smooth animation for hover */
+  transition: all 0.2s ease;
+}
+
+.btn-play:hover {
+  background: linear-gradient(135deg, #ffffff,#f1e7e7);
+  /* new gradient */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  /* drop shadow */
+  transform: translateY(-2px);
+  /* slight lift */
+}
+
+/* FAVORITE BUTTON */
+.btn-favorite {
+  padding: 12px 28px;
+  color: white;
+  border: none;
+  font-size: 40px;
+  font-weight: 200;
+  border-radius: 50px;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.18);
+  /* light frosted */
+  backdrop-filter: blur(6px);
+  /* glass blur */
+  -webkit-backdrop-filter: blur(6px);
+  /* Safari support */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.2s ease;
+}
+
+.btn-favorite:hover {
+  backdrop-filter: blur(12px);
+  /* stronger blur */
+  -webkit-backdrop-filter: blur(12px);
+
+  background: rgba(255, 255, 255, 0.28);
+  /* slightly more opaque */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+.btn-info {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.18);
+  /* light frosted */
+  backdrop-filter: blur(6px);
+  /* glass blur */
+  -webkit-backdrop-filter: blur(6px);
+  /* Safari support */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  transition: all 0.3s ease;
+}
+.btn-info:hover {
+  backdrop-filter: blur(12px);
+  /* stronger blur */
+  -webkit-backdrop-filter: blur(12px);
+
+  background: rgba(255, 255, 255, 0.28);
+  /* slightly more opaque */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* HERO VIDEO — sits behind everything */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hero-video.playing {
+  opacity: 1;
+}
+
+/* HERO LOGO IMAGE */
+.hero-logo-img {
+  width: 200px;
+  max-width: 90%;
+  margin-bottom: 0px;
+  filter: drop-shadow(2px 4px 12px rgba(0, 0, 0, 0.9));
+}
+
+/* DESCRIPTION WRAPPER — hidden by default */
+.hero-description-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  margin-bottom: 0;
+}
+
+/* DESCRIPTION WRAPPER — visible state (activated by JavaScript later) */
+.hero-description-wrapper.visible {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 20px;
+}
+
+/* HERO ARROWS */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 60px;
+  padding: 10px 18px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.hero-arrow:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.hero-arrow-left {
+  left: 10px;
+}
+
+.hero-arrow-right {
+  right: 10px;
+}
+
+/* NAVIGATION DOTS */
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+/* MOVIES CONTAINER */
+.movies-container {
+  padding: 40px 0;
+  background-color: #000000;
+}
+
+/* EACH ROW */
+.movie-row {
+  margin-bottom: 40px;
+  padding: 0 50px;
+  overflow: visible;
+}
+
+/* ROW TITLE */
+.row-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e5e5e5;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ROW CARDS CONTAINER */
+.row-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  padding-left: 4px;
+  scrollbar-width: none;
+}
+
+/* HIDE SCROLLBAR — it still scrolls, just invisible */
+.row-cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* INDIVIDUAL CARD */
+
+/* CARD INFO OVERLAY */
+.card {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 20px 10px 10px 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover.card img{
+  transform: scale(1.08);
+}
+.card:hover .card-info {
+  opacity: 1;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-rating {
+  font-size: 12px;
+  color: #f5c518;
+}
+
+/* SEARCH DROPDOWN PANEL */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 420px;
+  background: rgba(20, 20, 20, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  z-index: 500;
+  overflow: hidden;
+  display: none;
+
+  /* Show 5 items, scroll for rest */
+  max-height: 415px;
+  overflow-y: auto;
+}
+
+.search-dropdown.visible {
+  display: block;
+}
+
+/* EACH RESULT ROW */
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* SMALL POSTER ON THE LEFT */
+.search-result-poster {
+  width: 52px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* MOVIE NAME */
+.search-result-title {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+/* "NO RESULTS" MESSAGE */
+.search-no-results {
+  padding: 16px;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+/* RESULT META INFO (type, year, genres, rating) */
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.meta-tag {
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  color: #cccccc;
+  white-space: nowrap;
+}
+
+.meta-tag.type-movie {
+  background: rgba(229, 9, 20, 0.3);
+  color: #ff6b6b;
+}
+
+.meta-tag.type-series {
+  background: rgba(30, 100, 229, 0.3);
+  color: #6ba3ff;
+}
+
+.meta-rating {
+  font-size: 11px;
+  color: #f5c518;
+  font-weight: 600;
+}
+
+/* SEARCH BAR GLOW when dropdown is open */
+.search-bar.active-search {
+  border-color: rgba(229, 9, 20, 0.7);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.25), 0 0 16px rgba(229, 9, 20, 0.3);
+  outline: none;
+}
+
+/* BLUR OVERLAY — covers the whole page behind the search */
+.search-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: none;
+}
+
+.search-blur-overlay.visible {
+  display: block;
+}
+
+/* SCROLLBAR inside dropdown — styled to be subtle */
+.search-dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+.search-dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+.search-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}

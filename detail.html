@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link rel="stylesheet" href="detail.css">
+</head>
+
+<body>
+
+  <!-- BACK BUTTON -->
+  <button class="back-btn" onclick="window.close()">&#8592; Back</button>
+
+  <!-- BACKDROP IMAGE SECTION -->
+  <div class="detail-backdrop" id="detail-backdrop">
+    <div class="detail-backdrop-overlay"></div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="detail-content">
+
+    <!-- LEFT: POSTER -->
+    <img class="detail-poster" id="detail-poster" src="" alt="">
+
+    <!-- RIGHT: INFO -->
+    <div class="detail-info">
+
+      <h1 class="detail-title" id="detail-title"></h1>
+
+      <div class="detail-meta" id="detail-meta">
+        <!-- Year, type, rating injected here by JS -->
+      </div>
+
+      <div class="detail-genres" id="detail-genres">
+        <!-- Genre tags injected here by JS -->
+      </div>
+
+      <p class="detail-overview" id="detail-overview"></p>
+
+      <!-- TRAILER SECTION — Phase 7 will fill this -->
+      <div class="detail-trailer-box" id="detail-trailer-box">
+        <p class="trailer-placeholder">🎬 Trailer loading...</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="detail.js"></script>
+</body>
+
+</html>
