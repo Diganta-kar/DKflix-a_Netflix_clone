@@ -575,6 +575,7 @@ body {
   -webkit-backdrop-filter: blur(5px);
   background: rgba(0, 0, 0, 0.4);
   z-index: 100;
+  isolation: isolate; 
   display: none;
 }
 
