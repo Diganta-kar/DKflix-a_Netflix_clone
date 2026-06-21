@@ -80,8 +80,8 @@ body {
   width: 200px;
 
   background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -204,10 +204,10 @@ body {
 
   background: rgba(255, 255, 255, 0.18);
   /* light frosted */
-  backdrop-filter: blur(6px);
-  /* glass blur */
   -webkit-backdrop-filter: blur(6px);
   /* Safari support */
+  backdrop-filter: blur(6px);
+  /* glass blur */
 
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -236,10 +236,10 @@ body {
   cursor: pointer;
   background: rgba(255, 255, 255, 0.18);
   /* light frosted */
-  backdrop-filter: blur(6px);
-  /* glass blur */
   -webkit-backdrop-filter: blur(6px);
   /* Safari support */
+  backdrop-filter: blur(6px);
+  /* glass blur */
 
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -449,8 +449,8 @@ body {
   background: rgba(20, 20, 20, 0.97);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   z-index: 500;
   overflow: hidden;
@@ -587,8 +587,8 @@ body {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: 150; /* behind navbar (z-index 200) but in front of page-content */
   opacity: 0;
   pointer-events: none;
