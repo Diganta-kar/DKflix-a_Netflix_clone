@@ -3,10 +3,12 @@
 // fetches full details + trailer from TMDB
 // ============================================
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-console.log("API KEY IS:", API_KEY);
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const BACKDROP_BASE_URL = "https://image.tmdb.org/t/p/original";
+
+const isDev = import.meta.env.DEV;
+const API_BASE = isDev ? "https://api.themoviedb.org/3" : "/api/tmdb";
+const API_KEY = isDev ? import.meta.env.VITE_TMDB_API_KEY : "";
 
 // ---- Read the movie object saved by main page ----
 const raw = localStorage.getItem("selectedMovie");
@@ -18,13 +20,13 @@ const isMovie = movie.media_type === "movie";
 // Build the two endpoints we need:
 // 1. Full detail (title, genres, overview, backdrop etc.)
 // 2. Videos list (to find the trailer key)
-const detailEndpoint = isMovie
-  ? `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}`
-  : `https://api.themoviedb.org/3/tv/${movie.id}?api_key=${API_KEY}`;
+const detailEndpoint = isDev
+  ? (isMovie ? `${API_BASE}/movie/${movie.id}?api_key=${API_KEY}` : `${API_BASE}/tv/${movie.id}?api_key=${API_KEY}`)
+  : (isMovie ? `${API_BASE}?path=movie/${movie.id}` : `${API_BASE}?path=tv/${movie.id}`);
 
-const videosEndpoint = isMovie
-  ? `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${API_KEY}`
-  : `https://api.themoviedb.org/3/tv/${movie.id}/videos?api_key=${API_KEY}`;
+const videosEndpoint = isDev
+  ? (isMovie ? `${API_BASE}/movie/${movie.id}/videos?api_key=${API_KEY}` : `${API_BASE}/tv/${movie.id}/videos?api_key=${API_KEY}`)
+  : (isMovie ? `${API_BASE}?path=movie/${movie.id}/videos` : `${API_BASE}?path=tv/${movie.id}/videos`);
 
 // ---- Main loader ----
 async function loadDetail() {

@@ -178,9 +178,11 @@ heroVideo.addEventListener("canplay", () => {
 // SECTION 4 — TMDB API INTEGRATION
 // ============================================
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
-console.log("API KEY IS:", API_KEY);
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+
+const isDev = import.meta.env.DEV;
+const API_BASE = isDev ? "https://api.themoviedb.org/3" : "/api/tmdb";
+const API_KEY = isDev ? import.meta.env.VITE_TMDB_API_KEY : "";
 
 // ---- Build one movie card element ----
 // This function takes one movie object from TMDB
@@ -268,19 +270,19 @@ async function fetchAndFillRow(rowId, url) {
 // Trending this week
 fetchAndFillRow(
   "trending-row",
-  `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
+  isDev ? `${API_BASE}/trending/movie/week?api_key=${API_KEY}` : `${API_BASE}?path=trending/movie/week`
 );
 
 // Top rated movies
 fetchAndFillRow(
   "toprated-row",
-  `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`
+  isDev ? `${API_BASE}/movie/top_rated?api_key=${API_KEY}` : `${API_BASE}?path=movie/top_rated`
 );
 
 // Action movies (genre id 28 = Action on TMDB)
 fetchAndFillRow(
   "action-row",
-  `https://api.themoviedb.org/3/discover/movie?with_genres=28&sort_by=popularity.desc&api_key=${API_KEY}`
+  isDev ? `${API_BASE}/discover/movie?with_genres=28&sort_by=popularity.desc&api_key=${API_KEY}` : `${API_BASE}?path=discover/movie&with_genres=28&sort_by=popularity.desc`
 );
 
 // ============================================
@@ -289,7 +291,8 @@ fetchAndFillRow(
 
 const searchInput = document.getElementById("search-input");
 const searchDropdown = document.getElementById("search-dropdown");
-const blurOverlay = document.getElementById("search-blur-overlay");
+const pageContent = document.getElementById("page-content");
+const searchOverlay = document.getElementById("search-overlay");
 
 // Genre ID to name map — TMDB gives genre IDs in movie data, not names
 // So we look up the name ourselves using this object (like a dict in Python)
@@ -310,13 +313,13 @@ let searchTimer = null;
 
 // ---- Show the blur overlay and glow ----
 function openSearchUI() {
-  blurOverlay.classList.add("visible");
+  searchOverlay.classList.add("active");
   searchInput.classList.add("active-search");
 }
 
 // ---- Hide the blur overlay and glow ----
 function closeSearchUI() {
-  blurOverlay.classList.remove("visible");
+  searchOverlay.classList.remove("active");
   searchInput.classList.remove("active-search");
   searchDropdown.classList.remove("visible");
   searchDropdown.innerHTML = "";
@@ -351,7 +354,9 @@ async function fetchSearchResults(query) {
 
   try {
 
-    const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(query)}`;
+    const url = isDev
+      ? `${API_BASE}/search/multi?api_key=${API_KEY}&query=${encodeURIComponent(query)}`
+      : `${API_BASE}?path=search/multi&query=${encodeURIComponent(query)}`;
     const response = await fetch(url);
     const data = await response.json();
 

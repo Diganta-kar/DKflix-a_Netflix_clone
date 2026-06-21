@@ -24,87 +24,89 @@
     </div>
   </nav>
 
-  <!-- HERO BANNER -->
-  <section class="hero">
+  <div class="search-overlay" id="search-overlay"></div>
+  <div class="page-content" id="page-content">
+    <!-- HERO BANNER -->
+    <section class="hero">
 
-    <!-- Background video — will play trailer here in Phase 4 -->
-    <video class="hero-video" autoplay muted loop></video>
+      <!-- Background video — will play trailer here in Phase 4 -->
+      <video class="hero-video" autoplay muted loop></video>
 
-    <!-- Dark overlay so text is readable over video/image -->
-    <div class="hero-overlay"></div>
+      <!-- Dark overlay so text is readable over video/image -->
+      <div class="hero-overlay"></div>
 
-    <!-- LEFT ARROW -->
-    <button class="hero-arrow hero-arrow-left">&#8249;</button>
+      <!-- LEFT ARROW -->
+      <button class="hero-arrow hero-arrow-left">&#8249;</button>
 
-    <!-- HERO CONTENT -->
-    <div class="hero-content">
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
 
-      <!-- Show logo as IMAGE not text — official font/style of each show -->
-      <img class="hero-logo-img" src="/stranger_things.png" alt="Stranger Things">
+        <!-- Show logo as IMAGE not text — official font/style of each show -->
+        <img class="hero-logo-img" src="/stranger_things.png" alt="Stranger Things">
 
-      <!-- Description is hidden by default, only shows on hover -->
-      <div class="hero-description-wrapper">
-        <p class="hero-description">
-          When a boy vanishes, a small town uncovers a mystery
-          involving secret experiments, terrifying supernatural
-          forces and one very strange little girl.
-        </p>
+        <!-- Description is hidden by default, only shows on hover -->
+        <div class="hero-description-wrapper">
+          <p class="hero-description">
+            When a boy vanishes, a small town uncovers a mystery
+            involving secret experiments, terrifying supernatural
+            forces and one very strange little girl.
+          </p>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="hero-buttons">
+          <button class="btn-play">&#9654; Play</button>
+          <button class="btn-favorite">
+            <span class="material-symbols-outlined">add</span>
+          </button>
+          <button class="btn-info">&#9432; More Info</button>
+        </div>
+
       </div>
 
-      <!-- ACTION BUTTONS -->
-      <div class="hero-buttons">
-        <button class="btn-play">&#9654; Play</button>
-        <button class="btn-favorite">
-          <span class="material-symbols-outlined">add</span>
-        </button>
-        <button class="btn-info">&#9432; More Info</button>
+      <!-- RIGHT ARROW -->
+      <button class="hero-arrow hero-arrow-right">&#8250;</button>
+
+      <!-- NAVIGATION DOTS -->
+      <div class="hero-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
 
-    </div>
+    </section>
 
-    <!-- RIGHT ARROW -->
-    <button class="hero-arrow hero-arrow-right">&#8250;</button>
+    <!-- MOVIE ROWS -->
+    <main class="movies-container">
 
-    <!-- NAVIGATION DOTS -->
-    <div class="hero-dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-
-  </section>
-
-  <!-- MOVIE ROWS -->
-  <main class="movies-container">
-
-    <!-- Row 1: Trending Now -->
-    <div class="movie-row">
-      <h2 class="row-title">Trending Now</h2>
-      <div class="row-cards" id="trending-row">
-        <!-- JavaScript will fill this with real cards -->
+      <!-- Row 1: Trending Now -->
+      <div class="movie-row">
+        <h2 class="row-title">Trending Now</h2>
+        <div class="row-cards" id="trending-row">
+          <!-- JavaScript will fill this with real cards -->
+        </div>
       </div>
-    </div>
 
-    <!-- Row 2: Top Rated -->
-    <div class="movie-row">
-      <h2 class="row-title">Top Rated</h2>
-      <div class="row-cards" id="toprated-row">
-        <!-- JavaScript will fill this with real cards -->
+      <!-- Row 2: Top Rated -->
+      <div class="movie-row">
+        <h2 class="row-title">Top Rated</h2>
+        <div class="row-cards" id="toprated-row">
+          <!-- JavaScript will fill this with real cards -->
+        </div>
       </div>
-    </div>
 
-    <!-- Row 3: Action Movies -->
-    <div class="movie-row">
-      <h2 class="row-title">Action Movies</h2>
-      <div class="row-cards" id="action-row">
-        <!-- JavaScript will fill this with real cards -->
+      <!-- Row 3: Action Movies -->
+      <div class="movie-row">
+        <h2 class="row-title">Action Movies</h2>
+        <div class="row-cards" id="action-row">
+          <!-- JavaScript will fill this with real cards -->
+        </div>
       </div>
-    </div>
 
-  </main>
-  <!-- Blur overlay for search focus -->
-  <div class="search-blur-overlay" id="search-blur-overlay"></div>
+    </main>
+    <!-- Blur overlay for search focus -->
+  </div>
   <script type="module" src="script.js"></script>
 </body>
 
