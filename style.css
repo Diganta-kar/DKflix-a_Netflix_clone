@@ -18,7 +18,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 68px;
+  height: 45px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
   display: flex;
   justify-content: space-between;
@@ -35,7 +35,7 @@ body {
 
 /* NAVBAR LOGO */
 .navbar-logo {
-  height: 40px;
+  height: 50px;
   width: auto;
 }
 
@@ -60,12 +60,15 @@ body {
   transform: translateY(-50%);
   font-size: 18px;
 
-  color: rgba(255, 255, 255, 0.95); /* brighter so blur won't wash it out */
-  text-shadow: 0 0 4px rgba(0,0,0,0.6); /* makes icon stand out */
-  
+  color: rgba(255, 255, 255, 0.95);
+  /* brighter so blur won't wash it out */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  /* makes icon stand out */
+
   pointer-events: none;
   user-select: none;
-  z-index: 400; /* icon ABOVE the glass layer */
+  z-index: 400;
+  /* icon ABOVE the glass layer */
 }
 
 /* YOUR SEARCH BAR (unchanged except padding-left) */
@@ -74,7 +77,8 @@ body {
   border: 1px solid white;
   color: white;
   padding: 6px 12px;
-  padding-left: 40px; /* space for icon */
+  padding-left: 40px;
+  /* space for icon */
   border-radius: 20px;
   font-size: 14px;
   width: 200px;
@@ -87,7 +91,8 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   position: relative;
-  z-index: 300; /* input BELOW icon */
+  z-index: 300;
+  /* input BELOW icon */
 }
 
 .search-bar::placeholder {
@@ -170,7 +175,7 @@ body {
 }
 
 .btn-play {
-  background: linear-gradient(135deg, #ffffff,  #d6d6d6);
+  background: linear-gradient(135deg, #ffffff, #d6d6d6);
   color: black;
   border: none;
   padding: 12px 28px;
@@ -184,7 +189,7 @@ body {
 }
 
 .btn-play:hover {
-  background: linear-gradient(135deg, #ffffff,#f1e7e7);
+  background: linear-gradient(135deg, #ffffff, #f1e7e7);
   /* new gradient */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   /* drop shadow */
@@ -225,6 +230,7 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   transform: translateY(-2px);
 }
+
 .btn-info {
   background-color: rgba(109, 109, 110, 0.7);
   color: white;
@@ -246,6 +252,7 @@ body {
 
   transition: all 0.3s ease;
 }
+
 .btn-info:hover {
   backdrop-filter: blur(12px);
   /* stronger blur */
@@ -399,6 +406,7 @@ body {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+
 .card img {
   width: 100%;
   height: 300px;
@@ -412,15 +420,16 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
   padding: 20px 10px 10px 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.card:hover.card img{
+.card:hover.card img {
   transform: scale(1.08);
 }
+
 .card:hover .card-info {
   opacity: 1;
 }
@@ -473,7 +482,7 @@ body {
   padding: 10px 14px;
   cursor: pointer;
   transition: background 0.2s ease;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .search-result-item:last-child {
@@ -531,7 +540,7 @@ body {
   font-size: 11px;
   padding: 2px 7px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   color: #cccccc;
   white-space: nowrap;
 }
@@ -563,13 +572,16 @@ body {
 .search-dropdown::-webkit-scrollbar {
   width: 4px;
 }
+
 .search-dropdown::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .search-dropdown::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
+
 /* MATERIAL ICONS STABILITY FALLBACK */
 .material-symbols-outlined {
   font-family: 'Material Symbols Outlined';
@@ -589,7 +601,8 @@ body {
   background: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  z-index: 150; /* behind navbar (z-index 200) but in front of page-content */
+  z-index: 150;
+  /* behind navbar (z-index 200) but in front of page-content */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -597,5 +610,6 @@ body {
 
 .search-overlay.active {
   opacity: 1;
-  pointer-events: auto; /* prevents clicking background elements when search is active */
+  pointer-events: auto;
+  /* prevents clicking background elements when search is active */
 }
